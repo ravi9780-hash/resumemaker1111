@@ -25,7 +25,7 @@ SECRET_KEY = 'yixqf80)ppon7_!)$f@r!r$gnn&+!ws83^%b_baagm_j!$ifsn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://resumemaker111.herokuapp.com/']
 
 
 # Application definition
