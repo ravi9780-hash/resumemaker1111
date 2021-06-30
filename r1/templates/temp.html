@@ -1,0 +1,35 @@
+{% extends 'home.html'%}
+{%block content%}
+{% load static%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12-fluid  my-5">
+            <h4  style="text-align:center;">SELECT&nbsp;<span><b>YOUR</b></span> RESUME TEMPLATE ACCORDING TO YOUR CHOICE</h4>
+            <hr>
+        </div>
+
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-4">
+            <h5 class="card-title" style="display:block; position:absolute;">Without Image</h5>
+            <div class="card ef" style="width: 18rem;">
+                <a href="{%url 'tr' %}" style="text-decoration:none; color: inherit;"><img src="{% static 'img/pr1.jpg'%}" class="card-img-top" alt="..."></a>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <h5 class="card-title" style="display:block; position:absolute;">With Image</h5>
+            <div class="card ef" style="width: 18rem;">
+                
+               <a href="{% url 'withimage' %}" style="color: inherit;"><img src="{% static 'img/withimage.jpg'%}" class="card-img-top" alt="..."></a>
+              </div>
+ 
+        </div>
+
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,68 @@
+{% extends 'home.html'%}
+{%block content%}
+<br>
+<form class="frm" style= "align-content: center; margin-left:100px;" action="{% url 'withimage'%}" method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <div class="input-group mb-3 my-4">
+        <span class="input-group-text" id="basic-addon1">Name</span>
+        <input type="text"  name="name" class="form-control" placeholder="Name"  id="validationCustom01"  requiredaria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3 my-4">
+        <span class="input-group-text" id="basic-addon1">Job Title</span>
+        <input type="text" name="jobtitle" class="form-control" placeholder="Jobtitle" id="validationCustom02"  required aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group my-4">
+        <span class="input-group-text">Profile Summary</span>
+        <textarea class="form-control" name="profile" aria-label="With textarea"  id="validationCustom03" value="" placeholder="Describe Yourself"></textarea>
+      </div>
+      <div class="input-group my-4">
+        <span class="input-group-text">Experience</span>
+        <textarea class="form-control"  name="Experience" aria-label="With textarea" placeholder="Write Freshers if u have not any experience"></textarea>
+      </div>
+      <div class="input-group my-4">
+        <span class="input-group-text">HOBBIES</span>
+        <textarea class="form-control" name="hobbies" aria-label="With textarea" id="validationCustom04" value="" required placeholder="Write Your Hobbies"></textarea>
+      </div>
+      <div class="input-group my-4">
+        <span class="input-group-text">POSITION'S APPLIED FOR</span>
+        <textarea class="form-control" name="positions" aria-label="With textarea" id="validationCustom05" value="" required placeholder="Positions you applied for"></textarea>
+      </div>
+      <div class="input-group mb-3 my-4">
+        <span class="input-group-text" id="basic-addon2">LAST EDUCATION</span>
+
+        <input type="text" name="lasteducation" class="form-control" placeholder="Recipient's username" id="validationCustom06" value="" required aria-label="Recipient's username" aria-describedby="basic-addon2">
+      </div>
+      <div class="input-group mb-3 my-4">
+        <span class="input-group-text"  id="basic-addon2">UNIVERSITY NAME</span>
+
+        <input type="text" class="form-control"  name="university" placeholder="Recipient's username" id="validationCustom07" value="" required aria-label="Recipient's username" aria-describedby="basic-addon2">
+      </div>
+      <div class="input-group my-4">
+        <span class="input-group-text">SKILLS</span>
+        <textarea class="form-control"  name="skills" aria-label="With textarea" id="validationCustom08" value="" required placeholder="ENTER YOUR SKILLS"></textarea>
+      </div>
+      <div class="input-group my-4">
+        <span class="input-group-text">PASSOUT YEAR</span>
+        <input type="number" class="form-control" ty name="passout" aria-label="With textarea" id="validationCustom09" value=""  placeholder="ENTER YOUR SKILLS">
+      </div>
+      <div class="input-group my-4">
+        <span class="input-group-text">ENTER YOUR NUMBER</span>
+        <input type="number" maxlength="10" name="mobile"  class="form-control"  id="validationCustom10" value="" requiredaria-label="With textarea" placeholder="ENTER YOUR  10 DIGIT NUMBER ">
+      </div>
+      <div class="input-group my-4">
+        <span class="input-group-text">ENTER YOUR EMAIL</span>
+        <input type="email" class="form-control" name="email" aria-label="With textarea" id="validationCustom11" value="" required placeholder="ENTER YOUR EMAIL">
+      </div>     
+      <div class="input-group my-4">
+        <span class="input-group-text">COUNTRY</span>
+        <input type="text" class="form-control" name="country" aria-label="With textarea" id="validationCustom12" value="" required placeholder="COUNTRY">
+      </div>    
+      <div class="input-group my-4">
+        <span class="input-group-text">LINKED IN PROFILE</span>
+        <input type="text" class="form-control" name="linkedin" aria-label="With textarea" id="validationCustom13" value="" required placeholder="LINKED IN PROFILE">
+      </div>  
+     
+    <button type="submit" class="btn btn-primary my-4" style="align-self: center;">Submit</button>
+   
+  </form>
+{%endblock%}

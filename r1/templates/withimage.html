@@ -1,0 +1,103 @@
+{% extends 'home.html'%}
+{% block content%}
+{% load static %}
+<div class="wim" id="wim">
+    <div class="row head">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none; max-width: 60px;height: 60px;"></p>
+          <p><label for="file" id="up" style="cursor: pointer;">Upload Image</label></p>
+          <p><img id="output" style="height: 100px; width:100px; border-radius: 50%;"></p>        </div>
+        <div class="col-sm-4 ">
+            <h1 class=" text-center imname" style=" display: flex; justify-content: center;">EMMA WATSON</h1>
+            <h6 class="text-center profile imname" style="color: black;">PROFILE TITLE</h6>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4" style="margin-top: 20px;">
+                <h6 class="contact"><b>CONTACT</b></h6>
+                <ul class="list-group">
+                   <li class="list"><img src="{% static 'img/phone-call.png' %}" style="height:20px; width:18px; margin-top:5x;">&nbsp;<h6 style="margin-top:-18px; margin-left:28px;">{{mobile}}</h6></li>
+                   <li class="list"><img src="{% static 'img/email.png' %}" style="height: 20px; width:18px; margin-top:10px;">&nbsp;<h6 style="margin-top: -18px; margin-left:30px;">{{email}}</h6></li>
+                   <li class="list"><img src="{% static 'img/place.png' %}" style="height: 20px; width:18px; margin-top:10px;">&nbsp;<h6 style="margin-top: -18px; margin-left:30px;">{{country}}</h6></li>
+                   <li class="list"><img src="{% static 'img/linkedin.png' %}" style="height: 20px; width:18px; margin-top:10px;"><h6 style="margin-top: -18px; margin-left:30px;">Linkedin/{{linkedin}}.com</h6></li>
+                 </ul>
+                 <div class="Education" style="margin-top: 12px;">
+                   <h3>EDUCATION</h3>
+                   <ul class="list-group">
+                     <li class="list">{{lasteducation}}</li>
+                     <li class="list">{{university}}</li>
+                     <li class="list">{{passout}}</li>
+                   </ul>
+                 </div>
+                 <div class="skiils" style="margin-top: 10px; margin-bottom: 20px;">
+                   <h3>SKILLS</h3>
+                   <ul class="list-group" >
+                       {% for i in skills%}
+                    <li class="item"> <span class="dot"></span>{{i}}</li>
+                    {%endfor%}
+                    
+                   </ul>
+                   
+                 </div>
+                
+            </div>
+            <div class="col-sm-6" style="margin-top:20px;">
+              <h5><b>PROFILE</b></h5>
+              <p class="text-center" style=" width:70%; display:absolute; text-align:center;">
+                {{profile}}
+              </p>
+              <h4><b>WORK EXPERIENCE</b></h4>
+              <p>{{Experience}}</p>
+              <h4 style="margin-top: 20px;"><b>HOBBIES</b></h4>
+              <ul class="list-group">
+                {% for i in hobbies%}
+                    <li class="item"> <span class="dot"></span>{{i}}</li>
+                    {%endfor%}
+             </ul>
+             <h4 style="margin-top: 20px;"><b>Positions Applied for</b></h4>
+              <ul class="list-group">
+                {% for i in position%}
+                <li class="item"> <span class="dot"></span>{{i}}</li>
+                {%endfor%}
+              </ul>
+            </div>
+            <div class="col-sm-1">
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col" style="margin:auto; display: flex; justify-content: center;">
+        <div  style="margin:auto; display: flex; align-items: center"><button class="btn btn-success center"  id='pdf' style="margin-left: 20px; margin-bottom:10px;"> click to download</button></div>
+
+      </div>
+    </div>
+    <script>
+        
+        let pe=document.getElementById('wim')
+        function generateresume(){
+            html2pdf(pe, {
+    jsPDF: { format: 'a4' }
+});
+            console.log("2")
+        }
+        document.getElementById('pdf').addEventListener('click',function(){
+           document.getElementById("up").innerHTML="";
+            generateresume();
+            console.log('clicked');
+        
+        });
+        var image=""
+
+        var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+
+        </script>  
+{%endblock%}

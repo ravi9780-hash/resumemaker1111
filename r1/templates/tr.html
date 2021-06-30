@@ -1,0 +1,90 @@
+{%extends 'home.html'%}
+{% block content%}
+{% load static %}
+
+<div class="wim" id="wim">
+    <div class="row mhead">
+        <div class="col-sm-12">
+            <h1 class=" text-center name">{{name}}</h1>
+            <h6 class="text-center profile">{{jobt}}</h6>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4" style="margin-top: 100px;">
+                <h6 class="contact"><b>CONTACT</b></h6>
+                <ul class="list-group">
+                   <li class="list"><img src="{% static 'img/phone-call.png' %}" style="height:20px; width:18px; margin-top:5x;">&nbsp;<h6 style="margin-top:-18px; margin-left:28px;">{{mobile}}</h6></li>
+                   <li class="list"><img src="{% static 'img/email.png' %}" style="height: 20px; width:18px; margin-top:10px;">&nbsp;<h6 style="margin-top: -18px; margin-left:30px;">{{email}}</h6></li>
+                   <li class="list"><img src="{% static 'img/place.png' %}" style="height: 20px; width:18px; margin-top:10px;">&nbsp;<h6 style="margin-top: -18px; margin-left:30px;">{{country}}</h6></li>
+                   <li class="list"><img src="{% static 'img/linkedin.png' %}" style="height: 20px; width:18px; margin-top:10px;"><h6 style="margin-top: -18px; margin-left:30px;">Linkedin/{{linkedin}}.com</h6></li>
+                 </ul>
+                 <div class="Education" style="margin-top: 12px;">
+                   <h3>EDUCATION</h3>
+                   <ul class="list-group">
+                     <li class="list">{{lasteducation}}</li>
+                     <li class="list">{{university}}</li>
+                     <li class="list">{{passout}}</li>
+                   </ul>
+                 </div>
+                 <div class="skiils" style="margin-top: 10px; margin-bottom: 20px;">
+                   <h3>SKILLS</h3>
+                   <ul class="list-group" >
+                       {% for i in skills%}
+                    <li class="item"> <span class="dot"></span>{{i}}</li>
+                    {%endfor%}
+                    
+                   </ul>
+                   
+                 </div>
+                
+            </div>
+            <div class="col-sm-6" style="margin-top:80px;">
+              <h5><b>PROFILE</b></h5>
+              <p class="text-center" style=" width:70%; display:absolute; text-align:center;">
+                {{profile}}
+              </p>
+              <h4><b>WORK EXPERIENCE</b></h4>
+              <p>{{Experience}}</p>
+              <h4 style="margin-top: 20px;"><b>HOBBIES</b></h4>
+              <ul class="list-group">
+                {% for i in hobbies%}
+                    <li class="item"> <span class="dot"></span>{{i}}</li>
+                    {%endfor%}
+             </ul>
+             <h4 style="margin-top: 20px;"><b>Positions Applied for</b></h4>
+              <ul class="list-group">
+                {% for i in position%}
+                <li class="item"> <span class="dot"></span>{{i}}</li>
+                {%endfor%}
+              </ul>
+            </div>
+            <div class="col-sm-1">
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-12 " style="margin:auto;">
+        <div  style="margin:auto;"><button class="btn btn-success center"  id='pdf' style="margin-left: 20px; margin-bottom:10px;"> click to download</button></div>
+
+      </div>
+    </div>
+    <script>
+        let pe=document.getElementById('wim')
+        function generateresume(){
+            html2pdf(pe, {
+    jsPDF: { format: 'a4' }
+});
+            console.log("2")
+        }
+        document.getElementById('pdf').addEventListener('click',function(){
+            generateresume();
+            console.log('clicked');
+        
+        });
+        </script>  
+{%endblock%}
+ 
